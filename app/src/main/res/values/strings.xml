@@ -759,4 +759,15 @@
     <string name="create_org_links_from_shared_links">Create org links from shared links</string>
     <string name="book_names_cannot_contain">Book names cannot contain \'../\'</string>
     <string name="is_active_label">Active</string>
+
+    <string name="pref_key_hide_archived_items">hide_archived_items</string>
+    <string name="hide_archived_items">Hide archived items</string>
+    <string name="hide_archived_items_summary">Hide items with :ARCHIVE: tag from agenda and search</string>
+
+    <string name="pref_key_hide_commented_items">hide_commented_items</string>
+    <string name="hide_commented_items">Hide commented trees</string>
+    <string name="hide_commented_items_summary">Hide items starting with COMMENT from agenda and search</string>
+
+    <bool name="pref_default_hide_archived_items">true</bool>
+    <bool name="pref_default_hide_commented_items">true</bool>
 </resources>

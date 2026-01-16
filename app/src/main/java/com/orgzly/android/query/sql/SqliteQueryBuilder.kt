@@ -26,6 +26,19 @@ class SqliteQueryBuilder(val context: Context) {
 
         where = toString(query.condition)
 
+        val filters = mutableListOf<String>()
+        if (AppPreferences.hideCommentedItems(context)) {
+            filters.add("NOT EXISTS (SELECT 1 FROM notes AS p WHERE notes.lft >= p.lft AND notes.rgt <= p.rgt AND p.title LIKE 'COMMENT %')")
+        }
+        if (AppPreferences.hideArchivedItems(context)) {
+            filters.add("(COALESCE(tags, '') NOT LIKE '%ARCHIVE%' AND COALESCE(inherited_tags, '') NOT LIKE '%ARCHIVE%')")
+        }
+
+        if (filters.isNotEmpty()) {
+            val combinedFilter = filters.joinToString(" AND ")
+            where = if (where.isEmpty()) combinedFilter else "($where) AND $combinedFilter"
+        }
+
         order = buildOrderBy(query.sortOrders)
 
         return SqlQuery(where, arguments, having, order)

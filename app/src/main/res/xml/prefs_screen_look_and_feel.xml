@@ -96,6 +96,18 @@
             android:title="@string/group_scheduled_with_today"
             android:summary="@string/group_scheduled_with_today_summary"
             android:defaultValue="@bool/pref_default_group_scheduled_with_today" />
+
+        <SwitchPreference
+            android:key="@string/pref_key_hide_archived_items"
+            android:title="@string/hide_archived_items"
+            android:summary="@string/hide_archived_items_summary"
+            android:defaultValue="@bool/pref_default_hide_archived_items" />
+
+        <SwitchPreference
+            android:key="@string/pref_key_hide_commented_items"
+            android:title="@string/hide_commented_items"
+            android:summary="@string/hide_commented_items_summary"
+            android:defaultValue="@bool/pref_default_hide_commented_items" />
     </PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>

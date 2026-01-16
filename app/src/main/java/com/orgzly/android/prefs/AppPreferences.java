@@ -913,6 +913,26 @@ public class AppPreferences {
     }
 
     /*
+     * Hide archived items
+     */
+
+    public static boolean hideArchivedItems(Context context) {
+        return getDefaultSharedPreferences(context).getBoolean(
+                context.getResources().getString(R.string.pref_key_hide_archived_items),
+                context.getResources().getBoolean(R.bool.pref_default_hide_archived_items));
+    }
+
+    /*
+     * Hide commented items
+     */
+
+    public static boolean hideCommentedItems(Context context) {
+        return getDefaultSharedPreferences(context).getBoolean(
+                context.getResources().getString(R.string.pref_key_hide_commented_items),
+                context.getResources().getBoolean(R.bool.pref_default_hide_commented_items));
+    }
+
+    /*
      * Group scheduled tasks with today in agenda
      */
 
